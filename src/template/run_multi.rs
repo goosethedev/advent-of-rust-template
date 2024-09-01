@@ -46,6 +46,8 @@ pub fn run_multi(days_to_run: &HashSet<Day>, is_release: bool, is_timed: bool) -
     }
 }
 
+// Weird error due to Debug - https://github.com/rust-lang/rust/issues/88900
+#[allow(dead_code)]
 #[derive(Debug)]
 pub enum Error {
     BrokenPipe,

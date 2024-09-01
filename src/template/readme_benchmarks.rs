@@ -7,6 +7,8 @@ use crate::template::Day;
 
 static MARKER: &str = "<!--- benchmarking table --->";
 
+// Weird error due to Debug - https://github.com/rust-lang/rust/issues/88900
+#[allow(dead_code)]
 #[derive(Debug)]
 pub enum Error {
     Parser(String),
