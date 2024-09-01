@@ -2,7 +2,7 @@
 
 # 🎄 Advent of Code {year}
 
-Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.rust-lang.org/).
+Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.rust-lang.org/). Directory structure generated using [fspoettel's AoC template for Rust](https://github.com/fspoettel/advent-of-code-rust). Check it out for instructions to setup your own.
 
 <!--- advent_readme_stars table --->
 
@@ -10,28 +10,25 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 
 ---
 
-## Template setup
+## Setup
 
-This template supports all major OS (macOS, Linux, Windows).
+Ensure you have Rust installed on your system and an AoC account.
 
-###  📝 Create your repository
+Install [aoc-cli](https://github.com/fspoettel/advent-of-code-rust?tab=readme-ov-file#optional-template-features) and setup the session cookies file on your system to retrieve inputs and challenge texts.
 
-1.  Open [the template repository](https://github.com/fspoettel/advent-of-code-rust) on Github.
-2.  Click [Use this template](https://github.com/fspoettel/advent-of-code-rust/generate) and create your repository.
-3.  Clone your repository to your computer.
-4.  If you are solving a previous year's advent of code, change the `AOC_YEAR` variable in `.cargo/config.toml` to reflect the year you are solving.
+Clone [fspoettel's AoC template for Rust](https://github.com/fspoettel/advent-of-code-rust) template, or my own fork with:
 
-### 💻 Setup rust
+```sh
+git clone -b custom https://github.com/goosethedev/advent-of-rust-template.git
+```
 
-1.  Install the [Rust toolchain](https://www.rust-lang.org/tools/install).
-2.  (recommended) Install the [rust-analyzer](https://rust-analyzer.github.io/manual.html) extension for your code editor.
-3.  (optional) Install a native debugger. If you are using VS Code, [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) is a good option.
+Change `{year}` in the header and in the `[env]` section at `.cargo/config.toml`.
 
----
+And you're good to go. Start scaffolding the problems and solving them.
 
-✨ You can start solving puzzles now! Head to the [Usage section](#usage) to see how to use this template. If you like, you can configure [some optional features](#optional-template-features).
+## Commands
 
-## Usage
+To test and run the code for a given day's puzzles, you'll need the inputs from your AoC account. Get them from the page or setup [aoc-cli](https://github.com/fspoettel/advent-of-code-rust?tab=readme-ov-file#optional-template-features) to retrieve them automatically.
 
 ### ➡️ Scaffold a day
 
@@ -47,32 +44,9 @@ cargo scaffold <day>
 # 🎄 Type `cargo solve 01` to run your solution.
 ```
 
+Use `--download` to also setup the inputs and puzzle text from the website. You need to setup [aoc-cli](https://github.com/fspoettel/advent-of-code-rust?tab=readme-ov-file#optional-template-features) for this.
+
 Individual solutions live in the `./src/bin/` directory as separate binaries. _Inputs_ and _examples_ live in the the `./data` directory.
-
-Every [solution](https://github.com/fspoettel/advent-of-code-rust/blob/main/src/template.txt) has _tests_ referencing its _example_ file in `./data/examples`. Use these tests to develop and debug your solutions against the example input. In VS Code, `rust-analyzer` will display buttons for running / debugging these unit tests above the unit test blocks.
-
-> [!TIP]
-> If a day has multiple example inputs, you can use the `read_file_part()` helper in your tests instead of `read_file()`. If this e.g. applies to day 1, you can create a second example file `01-2.txt` and invoke the helper like `let result = part_two(&advent_of_code::template::read_file_part("examples", DAY, 2));`. This supports an arbitrary number of example files.
-
-### ➡️ Download input for a day
-
-> [!IMPORTANT] 
-> This requires [installing the aoc-cli crate](#configure-aoc-cli-integration).
-
-You can automatically download puzzle input and description by either appending the `--download` flag to `scaffold` (e.g. `cargo scaffold 4 --download`) or with the separate `download` command:
-
-```sh
-# example: `cargo download 1`
-cargo download <day>
-
-# output:
-# [INFO  aoc] 🎄 aoc-cli - Advent of Code command-line tool
-# [INFO  aoc_client] 🎅 Saved puzzle to 'data/puzzles/01.md'
-# [INFO  aoc_client] 🎅 Saved input to 'data/inputs/01.txt'
-# ---
-# 🎄 Successfully wrote input to "data/inputs/01.txt".
-# 🎄 Successfully wrote puzzle to "data/puzzles/01.md".
-```
 
 ### ➡️ Run solutions for a day
 
@@ -135,9 +109,9 @@ The `cargo time` command allows you to benchmark your code and store timings in 
 
 `cargo time` has three modes of execution:
 
- 1. `cargo time` without arguments incrementally benches solutions that do not have been stored in the readme yet and skips the rest.
- 2. `cargo time <day>` benches a single solution.
- 3. `cargo time --all` benches all solutions.
+1.  `cargo time` without arguments incrementally benches solutions that do not have been stored in the readme yet and skips the rest.
+2.  `cargo time <day>` benches a single solution.
+3.  `cargo time --all` benches all solutions.
 
 By default, `cargo time` does not write to the readme. In order to do so, append the `--store` flag: `cargo time --store`.
 
@@ -173,9 +147,9 @@ cargo read <day>
 
 During december, the `today` shorthand command can be used to:
 
- - scaffold a solution for the current day
- - download its input
- - and read the puzzle
+-   scaffold a solution for the current day
+-   download its input
+-   and read the puzzle
 
 in one go.
 
